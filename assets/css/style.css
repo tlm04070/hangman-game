@@ -1,0 +1,39 @@
+.container{
+	background: #042A2B;
+	margin: 10% auto;
+	border-radius: 5px;
+	text-align: center;
+}
+
+#header{
+	background: #5EB1BF;
+	width: 50%;
+	margin:  10% auto;
+	padding: 30px;
+	border-radius: 5px;
+}
+
+h1{
+	color: #F4E04D;
+	font-size: 200%;
+}
+
+#game{
+	background:#5EB1BF;
+	color: #F4E04D;
+	font-size: 150%;
+	margin: 10% 10% auto;
+	border-radius: 5px;
+}
+
+p{
+	margin: 20px;
+	padding: 25px;
+
+}
+
+#wins, #current, #guesses, #wrong{
+	color: #fcfcfc;
+}
+
+
