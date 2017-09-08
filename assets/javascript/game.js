@@ -31,7 +31,7 @@ var word = ['Arizona Cardinals',
 	'Houston Texans'
 ];
 
-
+var userKey;
 
 
 
@@ -56,7 +56,7 @@ printBoard();
 var correctBool = false;
 document.onkeyup = function (event) {
 	var temp = event.key;
-	var userKey = temp.toUpperCase();
+	userKey = temp.toUpperCase();
 	
 	console.log(userKey);
 	console.log(picked);
@@ -71,6 +71,7 @@ document.onkeyup = function (event) {
 	} 
 	if (correctBool === false){
 		decreaseGuesses();
+		wrong();
 
 	}
 
@@ -96,7 +97,7 @@ document.getElementById("current").innerHTML = answerArray.join(" ");
 
 
 
-var guesses = 12;
+var guesses = 6;
 
 function decreaseGuesses(){
 	guesses--;
@@ -105,4 +106,13 @@ document.getElementById("guesses").innerHTML = guesses;
 
 
 
-document.getElementById("wrong").innerHTML = 'A B C D'
+
+function wrong(){
+// 	var temp = document.createElement("li");
+// 	var fill = document.createTextNode(userKey)
+// 	temp.appendChild(fill);
+// 	var currentDiv = document.getElementById("wrong");
+// document.body.insertBefore(temp, currentDiv);
+
+$("#wrong").append(userKey + " ");
+}
