@@ -33,8 +33,9 @@ var word = ['Arizona Cardinals',
 
 var userKey;
 
+var wins = 0;
 
-
+var guesses = 6;
 
 var picked = word[Math.floor(Math.random() * word.length)].toUpperCase();
 
@@ -53,11 +54,13 @@ for (i = 0; i < picked.length; i++) {
 printBoard();
 
 
+
+
 var correctBool = false;
 document.onkeyup = function (event) {
 	var temp = event.key;
 	userKey = temp.toUpperCase();
-	
+
 	console.log(userKey);
 	console.log(picked);
 
@@ -67,29 +70,38 @@ document.onkeyup = function (event) {
 			answerArray[i] = userKey;
 			printBoard();
 			correctBool = true;
-		} 
-	} 
-	if (correctBool === false){
+
+		}
+	}
+	if (correctBool === false) {
 		decreaseGuesses();
 		wrong();
 
 	}
 
+
 	correctBool = false;
 }
- 
 
 
 
 
+function wins() {
+	wins++;
+	if (answerArray === picked){
+		alert("You win");
+	}
+	
+}
 
-var wins = 0;
 document.getElementById("wins").innerHTML = wins;
 
 
 
+
+
 function printBoard() {
-document.getElementById("current").innerHTML = answerArray.join(" ");
+	document.getElementById("current").innerHTML = answerArray.join(" ");
 
 
 }
@@ -97,22 +109,33 @@ document.getElementById("current").innerHTML = answerArray.join(" ");
 
 
 
-var guesses = 6;
+var gameOver = "Close, but the word was " + picked + ".";
 
-function decreaseGuesses(){
+
+function decreaseGuesses() {
 	guesses--;
-document.getElementById("guesses").innerHTML = guesses;
+	document.getElementById("guesses").innerHTML = guesses;
+	if (guesses === 0) {
+		alert(gameOver);
+		alert("Try again!");
+		document.location.reload(true);
+
+	}
+
 }
 
 
 
+function wrong() {
+	// 	var temp = document.createElement("li");
+	// 	var fill = document.createTextNode(userKey)
+	// 	temp.appendChild(fill);
+	// 	var currentDiv = document.getElementById("wrong");
+	// document.body.insertBefore(temp, currentDiv);
 
-function wrong(){
-// 	var temp = document.createElement("li");
-// 	var fill = document.createTextNode(userKey)
-// 	temp.appendChild(fill);
-// 	var currentDiv = document.getElementById("wrong");
-// document.body.insertBefore(temp, currentDiv);
-
-$("#wrong").append(userKey + " ");
+	$("#wrong").append(userKey + " ");
 }
+
+
+
+console.log(answerArray.indexOf("__"));
