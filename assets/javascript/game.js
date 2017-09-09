@@ -84,28 +84,26 @@ document.onkeyup = function (event) {
 }
 
 
+	// for(i=0;i<answerArray.length;i++){
+	// 	for(j=0;j<picked.length;j++){
+	// 		if(picked[j] != answerArray[i]){
+				
 
 
 function wins() {
 	wins++;
-	if (answerArray === picked){
-		alert("You win");
-	}
-	
 }
 
 document.getElementById("wins").innerHTML = wins;
 
 
-
-
-
 function printBoard() {
 	document.getElementById("current").innerHTML = answerArray.join(" ");
-
+	if (document.getElementById("current").innerHTML === picked){
+		alert("You win");
+	}
 
 }
-
 
 
 
